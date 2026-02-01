@@ -2,11 +2,10 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const video = document.getElementById("loveVideo");
 
-/* ✅ Play video with sound immediately on first load */
+/* Play video with sound immediately on first load */
 window.addEventListener("load", () => {
   video.play().catch(() => {
     // fallback if browser blocks autoplay
-    console.log("Autoplay blocked, will start on first click.");
     document.body.addEventListener("click", () => video.play(), { once: true });
   });
 });
@@ -27,8 +26,8 @@ noBtn.addEventListener("mouseover", () => {
   scream.currentTime = 0;
   scream.play();
 
-  const x = Math.random() * (window.innerWidth - 150);
-  const y = Math.random() * (window.innerHeight - 150);
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 120);
 
   noBtn.style.position = "absolute";
   noBtn.style.left = x + "px";
