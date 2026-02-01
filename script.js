@@ -1,5 +1,15 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
+const video = document.getElementById("loveVideo");
+
+/* ✅ Play video with sound immediately on first load */
+window.addEventListener("load", () => {
+  video.play().catch(() => {
+    // fallback if browser blocks autoplay
+    console.log("Autoplay blocked, will start on first click.");
+    document.body.addEventListener("click", () => video.play(), { once: true });
+  });
+});
 
 /* YES grows + confetti */
 yesBtn.addEventListener("click", () => {
